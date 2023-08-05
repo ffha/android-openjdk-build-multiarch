@@ -8,7 +8,7 @@ if [ "$BUILD_IOS" != "1" ]; then
   sudo apt-get update
   sudo apt-get -y install autoconf python-is-python3 unzip zip
 
-  wget -nc -nv -O android-ndk-$NDK_VERSION-linux-x86_64.zip "https://dl.google.com/android/repository/android-ndk-$NDK_VERSION-linux-x86_64.zip"
+  wget -nc -nv -O android-ndk-$NDK_VERSION-linux-x86_64.zip https://dl.google.com/android/repository/android-ndk-$NDK_VERSION-linux.zip
   ./extractndk.sh
   ./maketoolchain.sh
 else
