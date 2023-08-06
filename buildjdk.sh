@@ -109,25 +109,17 @@ bash ./configure \
     --with-devkit=$TOOLCHAIN \
     --with-native-debug-symbols=external \
     --with-debug-level=$JDK_DEBUG_LEVEL \
-    --with-fontconfig-include=$ANDROID_INCLUDE \
-    OBJCOPY=$TOOLCHAIN/bin/llvm-objcopy
-    STRIP=$TOOLCHAIN/bin/llvm-strip
-    RANLIB=$TOOLCHAIN/bin/llvm-ranlib
-    LD=$TOOLCHAIN/bin/ld
-    CXX=$TOOLCHAIN/bin/$TARGET$API-clang++
-    AS=$CC
-    CC=$TOOLCHAIN/bin/$TARGET$API-clang
-    AR=$TOOLCHAIN/bin/llvm-ar
-    NM=$TOOLCHAIN/bin/llvm-nm
     $AUTOCONF_x11arg $AUTOCONF_EXTRA_ARGS \
-    --x-libraries=/usr/lib \
-        $platform_args || \
-error_code=$?
-if [ "$error_code" -ne 0 ]; then
-  echo "\n\nCONFIGURE ERROR $error_code , config.log:"
-  cat config.log
-  exit $error_code
-fi
+    --with-fontconfig-include=$ANDROID_INCLUDE \
+    OBJCOPY=$TOOLCHAIN/bin/llvm-objcopy \
+    STRIP=$TOOLCHAIN/bin/llvm-strip \
+    RANLIB=$TOOLCHAIN/bin/llvm-ranlib \
+    LD=$TOOLCHAIN/bin/ld \
+    CXX=$TOOLCHAIN/bin/$TARGET$API-clang++ \    
+    AS=$CC \
+    CC=$TOOLCHAIN/bin/$TARGET$API-clang \
+    AR=$TOOLCHAIN/bin/llvm-ar \
+    NM=$TOOLCHAIN/bin/llvm-nm \
 
 jobs=4
 
