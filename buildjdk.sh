@@ -110,6 +110,15 @@ bash ./configure \
     --with-native-debug-symbols=external \
     --with-debug-level=$JDK_DEBUG_LEVEL \
     --with-fontconfig-include=$ANDROID_INCLUDE \
+    OBJCOPY=$TOOLCHAIN/bin/llvm-objcopy
+    STRIP=$TOOLCHAIN/bin/llvm-strip
+    RANLIB=$TOOLCHAIN/bin/llvm-ranlib
+    LD=$TOOLCHAIN/bin/ld
+    CXX=$TOOLCHAIN/bin/$TARGET$API-clang++
+    AS=$CC
+    CC=$TOOLCHAIN/bin/$TARGET$API-clang
+    AR=$TOOLCHAIN/bin/llvm-ar
+    NM=$TOOLCHAIN/bin/llvm-nm
     $AUTOCONF_x11arg $AUTOCONF_EXTRA_ARGS \
     --x-libraries=/usr/lib \
         $platform_args || \
